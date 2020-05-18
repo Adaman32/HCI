@@ -31,24 +31,24 @@ body{
   color: #000000;
 }
 
-#back:hover, #link:hover{
+#back:hover, .link:hover{
   box-shadow: 0px 0px 80px 50px rgba(255,0,0,.3);
 }
 
 
-#link{
-  z-index: 100;
+.link{
   font-family: 'PX-font', sans-serif;
   font-size: 20pt;
   background: #B9340D;
   border: none;
   cursor: none;
   color: #ffffff;
+  padding: 10px;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0px 0px 80px 50px rgba(255,0,0,.2);
 }
 
-#link:active{
+.link:active{
   color: #000000;
 }
 
@@ -61,7 +61,7 @@ body{
   transform: translate(-50%,-50%);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 100;
+  z-index: 200;
   cursor: none;
 }
 
@@ -124,7 +124,9 @@ p{
   color: #B9340D;
   font-weight: 100;
   text-align: left;
-  font-size: 14pt;
+  font-size: 12pt;
+  margin-bottom: 50px;
+  line-height: 30px;
 }
 
 h2{
@@ -143,4 +145,12 @@ h2{
 
 video{
   width: 100%;
+  z-index: 100;
+}
+
+img{
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  z-index: 100;
 }
