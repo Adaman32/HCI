@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adam Cerven | HCI Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="styles/arvr.css">
+    <script type="text/javascript" src="scripts/main.js" defer></script>
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+  </head>
+  <body>
+      <h1>Workshop AR/VR</h1>
+      <a href="workshops.html"><button id="back">Back</button></a>
+
+      <div class="content">
+        <div class="section">
+          <h2>Arduino workshop 1</h2>
+          <h3> Result of exercise 3c</h3>
+          <p>The rotating banana on a pedestal - created by using meshes, materials and blueprints to create a rotating model:</p>
+          <video width="320" height="240" controls>
+            <source src="videos/workshop2/workshop1.mp4" type="video/mp4">
+          </video>
+          <a href="files/3c.ino"><button style="margin-top: 50px;" class="link">Download 3c code</button></a>
+        </div>
+        <div class="section">
+          <h3> Result of second part </h3>
+          <p> Box collecting bananas - created by adding the possibility to move an object according to user's input and by adding collision events to teh box, bananas and the environment:</p>
+          <video width="320" height="240" controls>
+            <source src="videos/workshop1/unreal2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="line">
+        </div>
+        <div class="section">
+          <h2>A-Frame</h2>
+          <h3> Result 02 - Shapes</h3>
+          <p>I added an icosahedron, a torus, cone and altered the plane and box to create a composition that I found interesting:</p>
+          <video width="320" height="240" controls>
+            <source src="videos/workshop1/aframe1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="section">
+          <h3> Result 04 - Animations</h3>
+          <p>I added two toruses to the scene and animated them to rotate along different axes. I also made the boxes go back and forth using a javascript function - the result is the following composition:</p>
+          <video width="320" height="240" controls>
+            <source src="videos/workshop1/aframe2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="section">
+          <h3> Result 06 - Headset Interactions</h3>
+          <p>I changed my cursor to a smaller pink circle, and added a function for changing one box's rotation and position after a 2 second fuse. The other box kept the growing function, but also with a 2 second fuse:</p>
+          <video width="320" height="240" controls>
+            <source src="videos/workshop1/aframe3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="section">
+          <a href="https://adaman32.github.io/VR-Workshop/"><button class="link">Link to completed A-frame exercises</button></a>
+        </div>
+      </div>
+      <div id="cursor"></div>
+    </body>
+</html>
