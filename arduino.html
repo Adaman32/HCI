@@ -20,6 +20,22 @@
           <video width="320" height="240" controls>
             <source src="videos/workshop2/workshop1.mp4" type="video/mp4">
           </video>
+          <pre><code>
+            void setup() {
+              // initialize digital pin LED_BUILTIN as an output.
+              pinMode(13, OUTPUT);
+              pinMode(12, OUTPUT);
+            }
+
+            void loop() {
+              digitalWrite(13, HIGH);   // turn the LED on
+              delay(500);
+              digitalWrite(12, HIGH);   // turn the LED on
+              digitalWrite(13, LOW);
+              delay(1000);
+              digitalWrite(12, LOW);    // turn the LED off
+            }
+              </code></pre>
           <a href="files/3c.ino"><button style="margin-top: 50px;" class="link">Download 3c code</button></a>
         </div>
         <div class="section">
@@ -28,6 +44,33 @@
           <video width="320" height="240" controls>
             <source src="videos/workshop2/workshop2.mp4" type="video/mp4">
           </video>
+          <pre><code>
+            int greenLedPin = 9;
+            int redLedPin = 10;
+            
+            void setup() {
+              pinMode(greenLedPin, OUTPUT);
+              pinMode(redLedPin, OUTPUT);
+            }
+
+            void loop() {
+
+              for (int brightness=0; brightness < 256; brightness++)
+              {
+                analogWrite(greenLedPin, brightness);
+                analogWrite(redLedPin, 255 - brightness);
+                delay(10);
+              }
+
+              for (int brightness=0; brightness < 256; brightness++)
+              {
+                analogWrite(greenLedPin, 255 - brightness);
+                analogWrite(redLedPin, brightness);
+                delay(10);
+              }
+
+            }
+              </code></pre>
           <a href="files/4c.ino"><button style="margin-top: 50px;" class="link">Download 4c code</button></a>
         </div>
         <div class="section">
@@ -36,6 +79,29 @@
           <video width="320" height="240" controls>
             <source src="videos/workshop2/workshop3.mp4" type="video/mp4">
           </video>
+          <pre> <code>
+    float sensorValue = 0; // variable for sensor value
+    int sensorPin = A0; // variable for sensor pin
+    int greenLedPin = 10;
+    int redLedPin = 9;
+
+    void setup() {
+      pinMode(sensorPin, INPUT);
+      pinMode(greenLedPin, OUTPUT);
+      pinMode(redLedPin, OUTPUT);
+      Serial.begin(9600);
+    }
+
+    void loop() {
+      sensorValue = analogRead(sensorPin); // read the voltage on the sensor pin
+                              //and store that value in the variable sensorValue
+      sensorValue = map(sensorValue, 0, 1023, 0, 255);
+      Serial.println(sensorValue); // print out sensorValue to the Serial Monitor
+      analogWrite(greenLedPin, sensorValue);
+      analogWrite(redLedPin, 255 - sensorValue);
+      delay(20); // delay for 0.2 seconds
+    }
+          </code> </pre>
           <a href="files/6c.ino"><button style="margin-top: 50px;" class="link">Download 6c code</button></a>
         </div>
         <div class="section">
@@ -44,6 +110,37 @@
           <video width="320" height="240" controls>
             <source src="videos/workshop2/workshop4.mp4" type="video/mp4">
           </video>
+          <pre> <code>
+      #include "LedControl.h"
+      /*
+      DIN connects to pin 12 CLK connects to pin 11 CS connects to pin 10
+      */
+
+      LedControl lc = LedControl(12,11,10,1); // create a new LedControl object
+
+      void setup() {
+        lc.shutdown(0,false);// Turn matrix on, no power saving
+        lc.setIntensity(0,8); // Set brightness to a medium value
+        lc.clearDisplay(0); // Clear the display
+        Serial.begin(9600);
+      }
+
+      void loop(){
+       int sensorValue = analogRead(A0); // read sensor, 0-1023
+        Serial.println(sensorValue);
+        sensorValue = map(sensorValue, 0, 1000, 0, 7); // remap the value 0-7
+
+        if(sensorValue < 4){
+          lc.clearDisplay(0); // Clear the display
+        }
+
+        lc.setLed(0, sensorValue,sensorValue, 1);
+        lc.setLed(0, 7-sensorValue,sensorValue, 1);
+        lc.setLed(0, 7-sensorValue, 7-sensorValue, 1);
+        lc.setLed(0, sensorValue, 7-sensorValue, 1);
+        delay(20);
+      }
+          </code> </pre>
           <a href="files/7c.ino"><button style="margin-top: 50px;" class="link">Download 7c code</button></a>
         </div>
         <div class="line">

@@ -154,3 +154,15 @@ img{
   margin-top: 20px;
   z-index: 100;
 }
+
+code{
+  /* width:100%; */
+  margin-bottom: 50px;
+  color: red;
+  background: #f1f1f1;
+}
+pre{
+  /* white-space: normal; */
+  text-align: left;
+  background: #f1f1f1;
+}
