@@ -146,6 +146,7 @@
         <div class="line" style="margin-top: 100px;">
         </div>
         <div class="section" style="margin-top: 250px;">
+          <h2>Arduino workshop 2</h2>
           <h3> Result of 9b </h3>
           <p>I tried to make the tune of Mission Impossible, but failed miserably :D Instead, the piezo speaker sounds very sad from my failure</p>
           <video width="320" height="240" controls>
@@ -282,7 +283,7 @@
       int cm = duration / 29 / 2;
       Serial.print(cm); Serial.println("cm");
       delay(100);
-      
+
       if(cm>160){
         digitalWrite(greenLedPin, HIGH);
         digitalWrite(yellowLedPin, LOW);
