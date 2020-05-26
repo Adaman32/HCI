@@ -47,7 +47,7 @@
           <pre><code>
             int greenLedPin = 9;
             int redLedPin = 10;
-            
+
             void setup() {
               pinMode(greenLedPin, OUTPUT);
               pinMode(redLedPin, OUTPUT);
@@ -143,9 +143,168 @@
           </code> </pre>
           <a href="files/7c.ino"><button style="margin-top: 50px;" class="link">Download 7c code</button></a>
         </div>
-        <div class="line">
+        <div class="line" style="margin-top: 100px;">
         </div>
+        <div class="section" style="margin-top: 250px;">
+          <h3> Result of 9b </h3>
+          <p>I tried to make the tune of Mission Impossible, but failed miserably :D Instead, the piezo speaker sounds very sad from my failure</p>
+          <video width="320" height="240" controls>
+            <source src="videos/workshop2/workshop5.mp4" type="video/mp4">
+          </video>
+          <pre> <code>
+            int speakerPin = 8;
+            void setup() {
+              pinMode(speakerPin, OUTPUT);
+            }
+
+            void loop() {
+              tone(speakerPin, 523, 200);
+              delay(200);
+              tone(speakerPin, 493, 200);
+              delay(250);
+              tone(speakerPin, 466, 700);
+              delay(800);
+              tone(speakerPin, 493, 200);
+              delay(250);
+              tone(speakerPin, 466, 200);
+              delay(250);
+              tone(speakerPin, 440, 700);
+              delay(800);
+              tone(speakerPin, 466, 200);
+              delay(250);
+              tone(speakerPin, 440, 200);
+              delay(250);
+              tone(speakerPin, 415, 700);
+              delay(800);
+              tone(speakerPin, 392, 100);
+              delay(250);
+              tone(speakerPin, 415, 100);
+              delay(250);
+            }
+          </code> </pre>
+          <a href="files/9b.ino"><button style="margin-top: 50px;" class="link">Download 9b code</button></a>
+        </div>
+      <div class="section">
+        <h3> Result of 9d </h3>
+        <p>I mapped the values from the LDR sensor, which were ranging between 300 and 830, to values between 200 and 1800, which were then used as frequencies for the piezo speaker output.</p>
+        <video width="320" height="240" controls>
+          <source src="videos/workshop2/workshop6.mp4" type="video/mp4">
+        </video>
+        <pre> <code>
+          int speakerPin = 8;
+          float sensorValue = 0; // variable for sensor value
+          int sensorPin = A0; // variable for sensor pin
+          bool change = false;
+
+          void setup() {
+             pinMode(sensorPin, INPUT);
+            Serial.begin(9600);
+            pinMode(speakerPin, OUTPUT);
+          }
+
+          void loop() {
+            sensorValue = analogRead(sensorPin);
+            sensorValue = map(sensorValue, 300, 830, 200, 1800);
+            tone(speakerPin, sensorValue, 100);
+          }
+        </code> </pre>
+        <a href="files/9d.ino"><button style="margin-top: 50px;" class="link">Download 9d code</button></a>
       </div>
+      <div class="section">
+        <h3> Result of 10d </h3>
+        <p>I found the middle threshold for the temperature, which turned out to be 500 - anything below it turned the LED off, anything above it turned the LED on.</p>
+        <video width="320" height="240" controls>
+          <source src="videos/workshop2/workshop7.mp4" type="video/mp4">
+        </video>
+        <pre> <code>
+          int ledPin = 13;
+          int sensorPin = A0;
+
+          void setup() {
+            pinMode(ledPin, OUTPUT);
+            pinMode(sensorPin, INPUT);
+            Serial.begin(9600);
+
+          }
+
+          // temp: 491, 509
+
+          void loop() {
+          int sensorValue = analogRead(sensorPin); // read sensorpin
+          Serial.println(sensorValue); // print to serial monitor
+          delay(10); // wait
+
+          if(sensorValue > 500){
+            analogWrite(ledPin, 255);
+          }
+          else analogWrite(ledPin, 0);
+
+          }
+        </code> </pre>
+        <a href="files/10d.ino"><button style="margin-top: 50px;" class="link">Download 10d code</button></a>
+      </div>
+      <div class="section">
+        <h3> Result of 11d </h3>
+        <p>I made the traffic light for social distancing with the thresholds of 160 and 140 cm. I noticed that sometimes I struggled with finding exactly where the sensor is pointing at, which resulted in flickering of the lights, as the sensor was pointing at something behind me.</p>
+        <video width="320" height="240" controls>
+          <source src="videos/workshop2/workshop8.mp4" type="video/mp4">
+        </video>
+        <pre> <code>
+    int greenLedPin = 9;
+    int yellowLedPin = 10;
+    int redLedPin = 11;
+    const int echoPin = 6;
+    const int trigPin = 7;
+
+    void setup() {
+      pinMode(echoPin, INPUT);
+      pinMode(trigPin, OUTPUT);
+      pinMode(greenLedPin, OUTPUT);
+      pinMode(yellowLedPin, OUTPUT);
+      pinMode(redLedPin, OUTPUT);
+      Serial.begin(9600);
+    }
+
+    void loop() {
+      // send a pulse
+      digitalWrite(trigPin, LOW);
+      delayMicroseconds(2);
+      digitalWrite(trigPin, HIGH);
+      delayMicroseconds(5);
+      digitalWrite(trigPin, LOW);
+
+      // wait for the echo
+      long duration = pulseIn(echoPin, HIGH);
+
+      // convert the time into a distance,
+      //the speed of sound is 29 microseconds per centimeter,
+      //the pulse traveled forth and back, so we divided the distance by 2
+      int cm = duration / 29 / 2;
+      Serial.print(cm); Serial.println("cm");
+      delay(100);
+      
+      if(cm>160){
+        digitalWrite(greenLedPin, HIGH);
+        digitalWrite(yellowLedPin, LOW);
+        digitalWrite(redLedPin, LOW);
+      }
+
+      else if(cm < 160 && cm>140){
+        digitalWrite(greenLedPin, LOW);
+        digitalWrite(yellowLedPin, HIGH);
+        digitalWrite(redLedPin, LOW);
+      }
+
+      else if(cm < 140){
+        digitalWrite(greenLedPin, LOW);
+        digitalWrite(yellowLedPin, LOW);
+        digitalWrite(redLedPin, HIGH);
+      }
+    }
+        </code> </pre>
+        <a href="files/11d.ino"><button style="margin-top: 50px;" class="link">Download 11d code</button></a>
+      </div>
+    </div>
       <div id="cursor"></div>
     </body>
 </html>

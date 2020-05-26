@@ -50,8 +50,4 @@ $(document).mousemove(function(e) {
       .css('left', moveX+'px')
       .css('top', moveY+'px')
       .css('transform', 'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)');
-    $('#back')
-      .css('left', moveX+'px')
-      .css('top', moveY+'px')
-      .css('transform', 'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)');
 });
