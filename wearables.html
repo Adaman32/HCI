@@ -43,60 +43,58 @@
         </div>
         <div class="section" style="margin-top: 150px;">
           <h2>Tinkering</h2>
-          <h3> Unity</h3>
-          <p>I decided to go with Unity for this challenge, so I searched up for some tutorials and tried out various VR functionalities. I also used Xcode for the first time, to run what I made on my phone.</p>
+          <h3> Connecting proximity sensor and LED matrix</h3>
+          <video width="320" height="240" controls>
+            <source src="videos/challenge2/tinkering1.mp4" type="video/mp4">
+          </video>
+          <p>I was first just curious about whether I would be able to get the matrix work with the distance sensor. I set up four rings as patterns for the matrix, and using the distance sensor, I tinkered with them based on how far my hand was.</p>
         </div>
         <div class="section">
-          <h3> Showcase 1</h3>
+          <h3> Using buttons</h3>
           <video width="320" height="240" controls>
-            <source src="videos/challenge1/tinkering1.mp4" type="video/mp4">
+            <source src="videos/challenge2/tinkering2.mp4" type="video/mp4">
           </video>
-          <p>In the first showcase, I am using the Google cardboard SDK for Unity to follow a tutorial on how to use a raycaster with functionality of changing object attributes. I tinkered with the colors that are getting changed and the click possibility of the Cardboard SDK.</p>
+          <p>I then used a similar set up, but I wanted to try out buttons. I hooked up two buttons to the breadboard, connected them to arduino, and gave each one of them a different ring to show when they are pressed.I sometimes encountered problems with the buttons, when they were loosely connected - they either did not respond, or responded without me pressing them.</p>
         </div>
         <div class="section">
-          <h3> Showcase 2</h3>
+          <h3> Buttons with speaker</h3>
           <video width="320" height="240" controls>
-            <source src="videos/challenge1/tinkering2.mp4" type="video/mp4">
+            <source src="videos/challenge2/tinkering3.mp4" type="video/mp4">
           </video>
-          <p>In the second showcase, I elaborated more on how the raycaster works, and used a gaze click to have the player teleport between platforms, or to start/stop an object spinning. I was now equipped with the tool of clicking on game objects, which opened the possibilities for making interactions between the player and the environment around the player.</p>
+          <p>I really liked the possibilities of buttons, so I wanted to tinker with them more. Next up, I connected a piezo speaker to the Arduino, and gave it a tone to play. I thought of an idea of using different buttons for different tones in my challenge, and creating a wearable music instrument, but in the end I went into a different direction.</p>
         </div>
         <div class="section">
-          <h3> Showcase 3</h3>
+          <h3>Tinkering with tones</h3>
           <video width="320" height="240" controls>
-            <source src="videos/challenge1/tinkering3.mp4" type="video/mp4">
+            <source src="videos/challenge2/tinkering4.mp4" type="video/mp4">
           </video>
-          <p>In the third showcase, I played around with the unity's system of gravity, rigid bodies to make cars collide with each other, and the VR raycaster to trigger movement in the cars. I made a little game of "demolition derby", where each time, the outcome is slighty different based on which cars get triggered by the player.</p>
-          <video width="320" height="240" controls>
-            <source src="videos/challenge1/tinkering3_1.mp4" type="video/mp4">
-          </video>
+          <p>As I said, I decided to do something different for my challenge, but I still wanted to explore tinkering with the speaker and buttons a bit more. I connected the distance sensor again, and used it to map out different tones based on the distance. The only problem is, that it is nearly impossible to create some pleasant music this way :D</p>
         </div>
         <div class="section" style="margin-top: 150px;">
           <h2>Design and Build</h2>
-          <h3>Night Band</h3>
-          <p>I took my curiosity from research - creating an experience that is heavily based on music and incorporating auditory sense, and combined it with what I learned throughout the tinkering stage.</p>
-          <img src="images/challenge1/challenge1.png" alt="">
-          <p> I thought out a concept of interacting with musical instruments and making a relaxing experience that involves a symphony of audio and visual cues.</p>
-          <img src="images/challenge1/challenge2.jpg" alt="">
+          <h3>Snake</h3>
+          <p>First, I found <a style="color: white;" href="https://create.arduino.cc/projecthub/arduino-bro/snake-led-matrix-game-1c7222">this project of Snake</a> and tried to implement it to my concept - I wanted to make a wearable Snake game. I changed the code quite significantly - changed it from using a joystick to two buttons - left/right, and made the snake advance automatically, I also at first eliminated game over, and set up that moving beyond the matrix will make the snake come out from the other side.</p>
+          <video width="320" height="240" controls>
+            <source src="videos/challenge2/snake.mp4" type="video/mp4">
+          </video>
+          <p> Next, aside from entertainment, I wanted to make something useful, especially in times of the corona crisis. I decided to accompany the snake game with a hand washing timer - using the LED matrix and a piezo buzzer. I also connected a potentiometer for selecting a functionality - snake or hand washing timer. I then used <a style="color: white;" href="https://xantorohara.github.io/led-matrix-editor/">this LED matrix editor</a> to create the numbers for the countdown and icons for the menu and countdown finish. Here you can see a diagram of how I set up the whole circuit: </p>
+          <img src="images/challenge2/challenge1.png" alt="">
           <p>
-           To set a relaxing atmosphere, I wanted to create a cozy-looking world - I found low poly models of nature, and was able to create a scene which to me seemed very nice and cozy. At this point, I got an idea of including animal models with animations, which I could then use for the experience. I implemented these, coded scripts, found individual instruments that fit together and joined everything in Unity.</p>
+           I then programmed the countdown and found a tune for the <a style="color: white;" href="https://dragaosemchama.com/en/2019/02/songs-for-arduino/">Starwars Cantina song</a> implemented that on the countdown finish, and programmed the menu. My aim here was to coin entertainment and usefulness in unison. Furthermore, I didnt want to make another hand-worn wearable, so I went with the silly concept of SnakePants, where the whole circuit rests in one leg of pants.</p>
 
-           <p>The final product achieves exactly what I set out to do - a music-based VR experience with relaxing instruments, nice-looking world and a little surprise for the player. It also answers the topic of the challenge very well, as I have not found a similar experience for VR, so the novelty and originality of it is also very satisfying to me. </p>
+           <p>
+             I think the concept I created answers the challenge topic well - it is quite silly, but innovative - pants embedded with an interface that lets the user play one of the all-time classic games, while giving them a useful functionality of a countdown for washing hands. It shows that you don't have to follow the traditional route of wearables - putting it on your arm - and as an experiment works quite well.
+           </p>
 
-           <h3>Short video explaining how I worked</h3>
+           <h3>Short video explaining the circuit</h3>
            <video width="320" height="240" controls>
-             <source src="videos/challenge1/explanation1.mp4" type="video/mp4">
+             <source src="videos/challenge2/explanation.mp4" type="video/mp4">
            </video>
         </div>
         <div class="section" style="margin-top: 150px;">
           <h2>Showcase</h2>
-          <h3>Clean showcase - just the experience</h3>
-          <video width="320" height="240" controls>
-            <source src="videos/challenge1/challenge1.mp4" type="video/mp4">
-          </video>
-          <h3 style="margin-top: 100px;">Explained showcase on an iOS device</h3>
-          <video width="320" height="240" controls>
-            <source src="videos/challenge1/iosinteraction.mp4" type="video/mp4">
-          </video>
+          <h3>SNAKEPANTS</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/K0l7KMjtvjs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="section" style="margin-top: 150px;">
           <h2>Reflect</h2>
