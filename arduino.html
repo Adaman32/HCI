@@ -305,6 +305,211 @@
         </code> </pre>
         <a href="files/11d.ino"><button style="margin-top: 50px;" class="link">Download 11d code</button></a>
       </div>
+      <div class="line" style="margin-top: 100px;">
+      </div>
+      <div class="section" style="margin-top: 250px;">
+        <h3> Result of 12e </h3>
+        <p>I played around with processing a little, and in the end I made four rectangles that change their height or width and their vertical or horizontal position based on the input from the potentiometer.</p>
+        <video width="320" height="240" controls>
+          <source src="videos/workshop2/workshop12.mp4" type="video/mp4">
+        </video>
+        <h3>Arduino code</h3>
+        <pre> <code>
+        float sensorValue = 0;
+        int sensorPin = A0;
+        int greenLedPin = 9;
+        int yellowLedPin = 10;
+
+        void setup() {
+          Serial.begin(9600);
+          pinMode(sensorPin, INPUT);
+          pinMode(greenLedPin, OUTPUT);
+          pinMode(yellowLedPin, OUTPUT);
+        }
+
+        void loop() {
+        sensorValue = analogRead(sensorPin); // Read the value/current on the sensor pin and
+        sensorValue = (sensorValue/1023)*255; // Rescale the sensor's value.
+
+        analogWrite(greenLedPin, sensorValue);// Send power to LED
+        Serial.println(sensorValue); // Print the sensorValue to the serial
+        delay(100); // Wait 0.1 seconds
+        }
+        </code> </pre>
+        <h3>Processing code</h3>
+        <pre> <code>
+            void setup() {
+            size(400, 400);
+            printArray(Serial.list());
+            myPort = new Serial(this, Serial.list()[1], 9600);
+            myPort.bufferUntil('\n');
+            }
+
+            void draw() {
+            background(255);
+            fill(0);
+            text("Sensor Reading: " + sensorReading, 20, 20);
+            rect(float(sensorReading), height/2, float(sensorReading), 50);
+            rect(width/2, float(sensorReading), 50, float(sensorReading));
+            rect(width/4, width - float(sensorReading), 50, width - float(sensorReading));
+            rect(height - float(sensorReading), height/4, height - float(sensorReading), 50);
+            }
+
+            void serialEvent (Serial myPort) {
+              sensorReading = myPort.readStringUntil('\n');
+            }
+        </code> </pre>
+        <a href="files/12e.ino"><button style="margin-top: 50px;" class="link">Download 12e code</button></a>
+      </div>
+      <div class="section">
+        <h3> Result of 13e </h3>
+        <p>I created an exclusive OR gate for the buttons - the LED only turns on if one of the button is turned on - if both or none are pressed, the LED will stay off.</p>
+        <video width="320" height="240" controls>
+          <source src="videos/workshop2/workshop13.mp4" type="video/mp4">
+        </video>
+        <pre> <code>
+        int ledPin = 13;
+        int buttonPinL = 2;
+        int buttonPinR = 3;
+        void setup() {
+          pinMode(ledPin, OUTPUT);
+          pinMode(buttonPinL, INPUT);
+          pinMode(buttonPinR, INPUT);
+        }
+
+        void loop(){
+          if((digitalRead(buttonPinL) == HIGH && digitalRead(buttonPinR) == LOW)
+          ||  (digitalRead(buttonPinL) == LOW && digitalRead(buttonPinR) == HIGH))
+          {
+            digitalWrite(ledPin, HIGH);
+          }
+          else{
+            digitalWrite(ledPin, LOW);
+          }
+        }
+        </code> </pre>
+        <a href="files/13e.ino"><button style="margin-top: 50px;" class="link">Download 13e code</button></a>
+      </div>
+      <div class="section">
+        <h3> Result of 14c </h3>
+        <p>I mapped the values of 0-1023 from the potentiometer to 0-160, and then set the position of the servomotor arm to the mapped value.</p>
+        <video width="320" height="240" controls>
+          <source src="videos/workshop2/workshop14.mp4" type="video/mp4">
+        </video>
+        <pre> <code>
+          #include <Servo.h>
+
+          Servo myServo;
+          int servoPin = 9;
+          int pos = 0;
+          int sensorPin = A0;
+
+          void setup() {
+            Serial.begin(9600);
+            myServo.attach(servoPin);
+            pinMode(sensorPin, INPUT);
+          }
+
+          void loop() {
+              pos = analogRead(sensorPin);
+              pos = map(pos, 0, 1023, 0, 160);
+
+              myServo.write(pos);
+              delay(30);
+          }
+        </code> </pre>
+        <a href="files/14c.ino"><button style="margin-top: 50px;" class="link">Download 14c code</button></a>
+      </div>
+      <div class="section">
+        <h3> Result of 15c </h3>
+        <p>I taped 3 of the piano pins to aluminium foil, and for the remaining three, I looked for some conductive materials in my surroundings - a banana, a millenium falcon keychain and a pair of scissors. I wired them all together and played a few tones on this new weird piano.</p>
+        <video width="320" height="240" controls>
+          <source src="videos/workshop2/workshop15.mp4" type="video/mp4">
+        </video>
+        <pre> <code>
+        #include <CapacitiveSensor.h>
+        CapacitiveSensor touchSwitchA = CapacitiveSensor(13, 12);
+        CapacitiveSensor touchSwitchB = CapacitiveSensor(11, 10);
+        CapacitiveSensor touchSwitchC = CapacitiveSensor(9, 8);
+        CapacitiveSensor touchSwitchD = CapacitiveSensor(7, 6);
+        CapacitiveSensor touchSwitchE = CapacitiveSensor(5, 4);
+        CapacitiveSensor touchSwitchF = CapacitiveSensor(3, 2);
+
+        int speakerPin = A0;
+
+        void setup(){
+         pinMode(speakerPin, OUTPUT);
+         Serial.begin(9600);
+        }
+
+        void loop(){
+
+         //read sensor A
+         long valueA = touchSwitchA.capacitiveSensor(30);
+         valueA = constrain(valueA, 150, 3000);
+         valueA = map(valueA, 150, 3000, 0, 255);
+         Serial.println(valueA);
+
+         if (valueA>100){ //if sensor value is above threshold, play tone
+           tone(speakerPin, 440, 200); // plays a tone of 440Hz for 200ms
+         }
+
+
+         //read sensor B
+         long valueB = touchSwitchB.capacitiveSensor(30);
+         valueB = constrain(valueB, 150, 3000);
+         valueB = map(valueB, 150, 3000, 0, 255);
+         Serial.println(valueB);
+
+         if(valueB>100){ //if sensor B value is above threshold, play tone
+           tone(speakerPin, 493, 200); // plays a tone of 493Hz for 200ms
+         }
+
+
+         //read sensor C
+         long valueC = touchSwitchC.capacitiveSensor(30);
+         valueC = constrain(valueC, 150, 3000);
+         valueC = map(valueC, 150, 3000, 0, 255);
+         Serial.println(valueC);
+         if (valueC>100){ //if sensor value is above threshold, play tone
+           tone(speakerPin, 262, 200); // plays a tone of 262Hz for 200ms
+         }
+
+
+         //read sensor D
+         long valueD = touchSwitchD.capacitiveSensor(30);
+         valueD = constrain(valueD, 150, 3000);
+         valueD = map(valueD, 150, 3000, 0, 255);
+         Serial.println(valueD);
+         if (valueD>100){
+           tone(speakerPin, 330, 200); // plays a tone of 330Hz for 200ms
+         }
+
+
+         //read sensor E
+         long valueE = touchSwitchE.capacitiveSensor(30);
+         valueE = constrain(valueE, 150, 3000);
+         valueE = map(valueE, 150, 3000, 0, 255);
+         Serial.println(valueE);
+
+         if (valueE>100){ //if sensor value is above threshold, play tone
+           tone(speakerPin, 330, 200); // plays a tone of 262Hz for 200ms
+         }
+
+
+         //read sensor F
+         long valueF = touchSwitchF.capacitiveSensor(30);
+         valueF = constrain(valueF, 150, 3000);
+         valueF = map(valueF, 150, 3000, 0, 255);
+         Serial.println(valueF);
+
+         if (valueF>100){ //if sensor value is above threshold, play tone
+           tone(speakerPin, 349, 200); // plays a tone of 262Hz for 200ms
+         }
+        }
+        </code> </pre>
+        <a href="files/15c.ino"><button style="margin-top: 50px;" class="link">Download 15c code</button></a>
+      </div>
     </div>
       <div id="cursor"></div>
     </body>
