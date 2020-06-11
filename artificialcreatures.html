@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adam Cerven | HCI Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="styles/arvr.css">
+    <script type="text/javascript" src="scripts/main.js" defer></script>
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+  </head>
+  <body>
+      <h1 style="margin-top: 100px;">Artififial Creatures <br> Challenge <br>Evolving Formulas</h1>
+      <a href="challenges.html"><button id="back">Back</button></a>
+
+      <div class="content">
+        <div class="section">
+          <h2>Research</h2>
+          <p>This was probably the challenge I was most looking forward to, as I was always interested in how artificial intelligence could work and how is it possible to make something "evolve". I was particularily interested in neural networks and the evolutionary part, so I made my research and tinkering mostly into that.</p>
+          <h3 style="margin-top: 80px;"> MarI/O</h3>
+          <p>The MarI/O project was made by SethBling, a youtuber from the US. He created a neural network for the game Super Mario, which cleared the first level of Mario on its own, simply by evolution. I really like that this shows that a neural network can power AI in various projects, and can fidure out what to do based on a simple trial-and-error basis.</p>
+          <img src="images/challenge3/mario.png" alt="">
+          <p>The network uses inputs from the level - it sees the static objects in the world as white squares, and moving objects as black squares. The outputs of the network are the 8 buttons you can press while playing Mario. Through evolution using fitness and random changes in the layers of the network, it figures out the best move bit by bit, and in the end (in generation 34), it learns exactly what to press at which point to clear the level.</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/qv6UVOQ0F44" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <a href="https://www.youtube.com/channel/UC8aG3LDTDwNR1UQhSn9uVrw" ><button style="margin-top:50px;" class="link" >SethBling's channel</button></a>
+        </div>
+        <div class="section">
+          <h3>Tesla Full-Self-Drive</h3>
+          <p> One of the most impressive and unbelievable AI projects is Tesla's self driving cars. These cars have extremely powerful neural networks that have inputs from all locations, seeing and knowing more than any driver could.</p>
+          <iframe title="vimeo-player" src="https://player.vimeo.com/video/192179726" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+          <p>It is impressive to me that such a technology exists today - and is basically ready-to-use. It uses machine learning to make sense of the road, signs, roadlights, cars, people and so on, enabling it to always know where it is, where it can go and what the best way to get there is, while keeping safety at its core. The car becomes an "artificial creature", as it can move and react to outside inputs, and it can even come up to the driver in a parking lot, to help the driver find it.</p>
+          <a href="https://www.tesla.com/cs_CZ/autopilot?redirect=no"><button class="link">Tesla's self drive page</button></a>
+        </div>
+        <div class="section">
+          <h3>Simulating natural selection</h3>
+          <p>This project of natural selection simulation was made by Justin Helps a.k.a. Primer. The project is slightly different from the previous neural networks examples, but I really like that it visualizes evolution based on environment very well.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/0ZGbIKd0XrM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <p>The creatures in this project evolve different traits: Speed, Size and Sense, and in different settings and environments, different traits dominate - which very nicely simulates and shows natural selection at its best. For example, in an environment with very low food, speed and sense turned out to be essential etc. I like that this project can communicate contextual evolution visually, and that it shows that different settings will make the artificial society evolve differently - creating a real simulated natural selection.</p>
+          <img src="images/challenge3/primer.png" alt="">
+          <a href="https://www.youtube.com/channel/UCKzJFdi57J53Vr_BkTfN3uQ/featured"><button class="link">Link to Primer</button></a>
+        </div>
+        <div class="line" style="margin-top: 50px;">
+        </div>
+        <div class="section" style="margin-top: 150px;">
+          <h2>Tinkering</h2>
+          <p>I decided to learn about the neural networks and how they work through a tutorial by a youtuber named The One</p>
+          <h3>Learning with a simple neural network</h3>
+          <video width="320" height="240" controls>
+            <source src="videos/challenge3/tinkering1.mp4" type="video/mp4">
+          </video>
+          <p>I followed the tutorial by The One to create this neural network simulation - it takes inputs and calculates the fitness of the network - if the boomerang is facing the yellow shape, the fitness is high, it is facing away and leaving, the fitness is low. This then takes the "genes" of the first generation with the highest fitness and mutates them for the second generation so that even better boomerang networks are produced. The cycle continues and you can see in a few generations, almost all boomerangs follow the box.</p>
+          <img src="images/challenge3/boomerang.png" alt="">
+          <p>Above is the mutation function - it simply randomly selects a mutation for the weights between the neurons of different layers, and then uses those to create outputs which are used for the boomerangs.</p>
+          <a href="https://www.youtube.com/watch?v=Yq0SfuiOVYE&t=419s"><button class="link">Link to the tutorial</button></a>
+        </div>
+        <div class="section">
+          <h3>More learning, now with car movement</h3>
+          <video width="320" height="240" controls>
+            <source src="videos/challenge3/tinkering2.mp4" type="video/mp4">
+          </video>
+          <p>I found another tutorial, which more related to my final product and aim - creating a self learning car. I followed this tutorial which resulted in setting up a "dumb" neural network - a one that does not improve with generations, just makes each new network random - some get far, most dont. I then decided to start my own "car" from scratch. I followed the tutorial up to the point where I created the non-improving network and then I decided to move to 2D, as that is what I wanted to do in my final challenge.</p>
+          <a href="https://www.youtube.com/watch?v=VYQZ-kjP1ec&t=931s"><button class="link">Link to the tutorial</button></a>
+        </div>
+        <div class="section">
+          <h3>My set up</h3>
+          <video width="320" height="240" controls>
+            <source src="videos/challenge3/tinkering3.mp4" type="video/mp4">
+          </video>
+          <p>This third showcase might seem like a step back, but I set up 5 different sensors that would serve as inputs for my neural network, and acceleration/turning as outputs. I made the sensors sensitive only to the track bounds (so if I wanted to add more agents, they would not interfere with each other). I then set up the movement and resetting using 2d collisions. I tinkered around with the speed, turning speed to find the optimal balance. I also had to figure out which colliders to use for best results and later optimize the camera movement so it would not follow the car in rotation.</p>
+        </div>
+        <div class="line" style="margin-top: 50px;">
+        </div>
+        <div class="section" style="margin-top: 150px;">
+          <h2>Design and Build</h2>
+          <h3>Formula</h3>
+          <p>For the challenge, I combined my learned knowledge from multiple sources and tutorials to create a neural network that would learn over several generations to drive through any course it would be presented with. I set up a scheme with five inputs from sensors, and three outputs - acceleration, deceleration and turning. The fitness of the network would be evaluated on the distance travelled, speed, sensor distance from edges, and aggression - how much does the formula accelerate and decelerate. Here is a diagram I made for visualizing my vision:</p>
+          <img src="images/challenge3/setup.png" alt="">
+          <p>In the end, I ended up making a customizable 4-formula set-up, where I put four different genetic managers with different emphasis on distance, speed, sensors and aggression. They also have different multipliers for the speed, deceleration and different amounts of Neurons and Neuron layers. This results in various reactions from all four formulas - some are really good at one track, while they struggle on other tracks. It also highly depends on chance - since the evolution is highly randomized, each run of the simulation is different, but over time, the formulas should learn how to navigate any course. I think my product relates to the challenge greatly, as it really simulates a "brain" - the four artificial formula creatures are all thinking on their own and figuring out the track based on the fitness of each network and generation.</p>
+          <img src="images/challenge2/formula.png" alt="">
+          <p>The final product results in four formulas with different approaches - some are slow and steady, others give emphasis on speed (but in some runs pay the price of not being able to get thourgh the first turn). Since the artificial network learns from scratch every time it is engaging to see each run, and see how fast each formula can get through the track.</p>
+        </div>
+        <div class="section" style="margin-top: 150px;">
+          <h2>Showcase</h2>
+          <h3>SNAKEPANTS</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/K0l7KMjtvjs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="section" style="margin-top: 150px;">
+          <h2>Reflect</h2>
+          <h3>Wearables in general and my vision of wearables in the future</h3>
+          <p>I personally am not a huge fan of wearables such as smart watches. I do not necessarily want to have screens attached to me at all times, as to me it seems like you never have a break from being connected. However, some screen-less, nagging-less wearables are great innovations, such as a <a style="color:white;" href="https://mclear.com">ring for payments</a>, which generally make life easier and more convenient. I do not see wearables becoming a major tech segment like laptops or smartphones, but I could be proved wrong. I just hope that there will be more diverse small useful gadgets such as the contactless payment ring, rather than smartwatches and fitness trackers.</p>
+          <img src="images/challenge2/ring.png" alt="">
+          <h3 style="margin-top: 100px;">My final product</h3>
+          <p>When starting to work on my challenge, I was not sure what I was going to come up with, but once I programmed the snake with the LED matrix I thought of a silly idea of embedding the product into pants - mainly because I wanted to do something different from an arm-mounted tech. I also wanted to include something more useful than the snake, which is why I opted for a countdown timer for washing  hands. At first, I was not sure if I would be able to make a wearable prototype, but then I found some old clothes that I could destroy and got to work with a pair of scissors, and my sewing skills. The result looked quite funky, but it is just a first prototype - in future versions of SnakePants, the tech would be less bulky and the pants would look better - those are the areas to improve with my wearable :D. Other than that, I also experienced some problems with connections - the buttons and some other components kept disconnectingwhen worn, but that was due to the bulkiness of the cables. I complemented the resulting wearable with an ad showcase with 80s synthwave theme, which I think really fit and sold the idea even better.
+          </p>
+          <img src="images/challenge2/circuit.jpg" alt="">
+          <h3 style="margin-top: 100px;">My experience using this technology</h3>
+          <p>
+            I never worked with Arduino before, and found it really fun to expand from programming just applications, to programming circuits and wiring it up myself. On the other hand, I found it quite hard to create a wearable with the solderless breadboard and the universal-length jumper wires, as some components kept falling out or having bad connections. Nevertheless, I really enjoyed tinkering with the circuit, and figuring out how to wire everything and program the code to create my own gadgets - it gave me a feeling of achievement and showed that if I need some simple tech, I might as well build it myself.
+          </p>
+          <img src="images/challenge2/snake.jpg" alt="">
+        </div>
+      </div>
+      <div id="cursor"></div>
+    </body>
+</html>

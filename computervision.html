@@ -169,6 +169,68 @@
               </code></pre>
           <a href="files/3d.pde"><button style="margin-top: 50px;" class="link">Download 3d code</button></a>
         </div>
+        <div class="section">
+          <h3> Result of 4b</h3>
+          <p>I created a circuit with a servo motor and an piezo speaker. I then used processing to visualize a circle around the mouse while it is in a 255x255 processing canas. The mouseX and mouseY are being combined and sent to arduino, where they are mapped to the min and max values of both the servo and the speaker.The mouseX and mouseY are also used in processing for the color of the circle around the mouse. The result is that the servo moves its arm and the speaker plays different tones, both based on the position of the mouse.</p>
+          <video width="320" height="240" controls>
+            <source src="videos/workshop3/4b.mp4" type="video/mp4">
+          </video>
+          <h3>Processing code</h3>
+          <pre><code>
+            import processing.serial.*;
+            Serial myPort;
+            int valueSend;
+
+            void setup()
+            {
+              size(255, 255);
+              String portName = Serial.list()[1];
+              myPort = new Serial(this, portName, 115200);
+            }
+
+            void draw() {
+              background(255);
+              fill(mouseX, mouseY, 128);
+              ellipse(mouseX,mouseY, 100,100);
+              valueSend = mouseY + mouseX;
+              println(valueSend);
+              myPort.write(valueSend);
+            }
+              </code></pre>
+          <h3>Arduino code</h3>
+          <pre><code>
+            #include <Servo.h>
+            int valSpeaker;
+            int valServo;  // Data received from the serial port
+            Servo myServo;
+            int servoPin = 9;
+            int speakerPin = 8;
+
+            void setup() {
+            myServo.attach(servoPin);
+            pinMode(speakerPin, OUTPUT);
+            Serial.begin(115200);
+            }
+
+            void loop() {
+              while (Serial.available())
+              { // If data is available to read,
+                valSpeaker = Serial.read();
+                valServo = valSpeaker;
+                valServo = map(valServo, 0 ,510, 0, 160);
+                valServo = constrain(valServo, 0, 160);
+                myServo.write(valServo);
+                delay(15);
+                valSpeaker = map(valSpeaker,0,510, 262, 523);
+                valSpeaker = constrain(valSpeaker, 262,523);
+                tone(speakerPin, valSpeaker, 200);
+
+              }
+            }
+              </code></pre>
+          <a href="files/4b.pde"><button style="margin-top: 50px;" class="link">Download 4b processing code</button></a>
+          <a href="files/4b.ino"><button style="margin-top: 50px;" class="link">Download 4b arduino code</button></a>
+        </div>
     </div>
       <div id="cursor"></div>
     </body>
