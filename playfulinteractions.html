@@ -9,7 +9,7 @@
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
   </head>
   <body>
-      <h1 style="margin-top: 100px;">Playful Interaction <br> Challenge <br>Enjoyable wait</h1>
+      <h1 style="margin-top: 100px;">Playful Interaction <br> Challenge <br>DDRedlightvolution</h1>
       <a href="challenges.html"><button id="back">Back</button></a>
 
       <div class="content">
@@ -67,31 +67,30 @@
         </div>
         <div class="section" style="margin-top: 150px;">
           <h2>Design and Build</h2>
-          <h3>Formula Neural Network</h3>
-          <p>For the challenge, I combined my learned knowledge from multiple sources and tutorials to create a neural network that would learn over several generations to drive through any course it would be presented with. I set up a scheme with five inputs from sensors, and three outputs - acceleration, deceleration and turning. The fitness of the network would be evaluated on the distance travelled, speed, sensor distance from edges, and aggression - how much does the formula accelerate and decelerate. Here is a diagram I made for visualizing my vision:</p>
-          <img src="images/challenge3/setup.jpg" alt="">
-          <p>In the end, I ended up making a customizable 4-formula set-up, where I put four different genetic managers with different emphasis on distance, speed, sensors and aggression. They also have different multipliers for the speed, deceleration and different amounts of Neurons and Neuron layers. This results in various reactions from all four formulas - some are really good at one track, while they struggle on other tracks. It also highly depends on chance - since the evolution is highly randomized, each run of the simulation is different, but over time, the formulas should learn how to navigate any course. I think my product relates to the challenge greatly, as it really simulates a "brain" - the four artificial formula creatures are all thinking on their own and figuring out the track based on the fitness of each network and generation.</p>
-          <img src="images/challenge3/formula1.png" alt="">
-          <p>The final product results in four formulas with different approaches - some are slow and steady, others give emphasis on speed (but in some runs pay the price of not being able to get thourgh the first turn). Since the artificial network learns from scratch every time it is engaging to see each run, and see how fast each formula can get through the track.</p>
+          <h3>Dance Dance Redlightvolution</h3>
+          <p>For the challenge, I wanted to make my own "fun theory" such as the piano stairs, or the arcade trashcan, so I started thinking of what problem I could address. After a while, I came to the conclusion that I could make waiting for a red light more enjoyable, making jumping red light a less likely thing to do. After some ideation, I came up with the idea of creating my own version of <a href="https://www.youtube.com/watch?v=sv7gxqEhcBo">Dance Dance Revolution</a>, and putting it to the end of a pedestrian crossing.</p>
+          <img src="images/challenge4/setup.jpg" alt="">
+          <p>I created an Arduino circuit with four capacitive sensors, then programmed the interface and interaction in processing. The capacitive sensors are the arrows in four different directions, that when touched, they send a directional message through the serial connection to processing, which then evaluates if the right arrow was hit at a right time. I used the song Genesis by Justice, as I found that it fit nicely.</p>
+          <img style="width: 50%;" src="images/challenge4/ddr.png" alt="">
+          <p>I think my final product is quite innovative, as it takes two different things - waiting at a red light and DDR - and puts them in the same context to make the wait more meaningful and playful. I'm happy that I was able to make something similar to the fun theory examples we have seen, even though I just made a proof-of-concept, not a full prototype that could be tested in the field.</p>
         </div>
         <div class="section" style="margin-top: 150px;">
           <h2>Showcase</h2>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/Wptk9zUxpWE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/sN-sQjZfTgg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="section" style="margin-top: 150px;">
           <h2>Reflect</h2>
-          <h3>Artificial Creatures and Affective computing in general and my vision of wearables in the future</h3>
-          <p>I think that artificial intelligence has a real future in our world, seeing that it can easily evolve and teach itself, and is better equipped for not making "human" mistakes (in driving etc.). Additionally, artificial creatures that have a less serious objective, and those that use affective computing to "feel alive" will also definitely imrove and have a large impact on various industries such as games, entertainment, movies, but also serving as pets or helpers. I think that if we ever create a real artificial intelligence, machine learning and affective computing will be at the core of the project, as they provide a strong foundation for great progress.</p>
-          <img src="images/challenge3/spot.jpg" alt="">
+          <h3>Playful interaction in general and my vision of playful interaction in the future</h3>
+          <p>Playful interaction can be very valuable and behavior-changing, if it is used in a meaningful way. The whole idea of fun theory, where you create a more fun way to shape people's behaviors to do the better and harder thing to do is a very powerful concept, that I think shows that when you think about some dilemma from a different perspective, you might find valuable and groundbreaking solutions. I hope to see more innovative playful interactions put in public spaces, but also would love to take part in some project that would change human behavior for the better (especially in environmental issues).</p>
+          <img src="images/challenge4/piano.jpg" alt="">
           <h3 style="margin-top: 100px;">My final product</h3>
-          <p>I am happy with my final product. When starting the challenge, I set out to learn more about neural networks and machine learning, which is exactly what I ended up doing with my challenge. I programmed and created my first neural network using C# and Unity, which turned out to be not as complicated, as one would expect. I tried out the final product on different circuits, just to check whether it really works - whether the AI really learns, and found that it does indeed with each generation get better at steering and knowing what to do. I think I could improve upon this by figuring out how to make the computer TEACH itself that going forward is the desirable outcome (as with my case, the fitness increased also if the formula was able to turn around and go backwards, or if it found a track wide enough to drive in circles - so that is one area I would improve in the future).
+          <p>I think my final product is a good proof-of-concept. I managed to do what I set out to do - an interactive, working DDR, that could potentially be improved to be put at a pedestrian crossing. I sometimes struggled with the prototype being too fragile - the cables kept disconnecting or upon touching the sensors, they did not reach the necessary threshold to send the directional signal through the serial connection. Nevertheless, after playing around with it, I found a nice balance, that serves as a nice foundation for a potential more hi-fi version that could be used in terrain. I would love to see if my idea could bring a positive behavior change. Overall, I am satisfied with my creation, and I think it tackled the challenge well.
           </p>
-          <img src="images/challenge3/formula2.png" alt="">
+          <img src="images/challenge4/concept.jpg" alt="">
           <h3 style="margin-top: 100px;">My experience using this technology</h3>
           <p>
-            I found neural networks really interesting also prior to the HCI course, so I was really happy when I found that I would be able to study them in more detail. I was surprised at the fact that it is not that complicated to create a neural network, once you have some grasp of multi-dimensional arrays, and you understand how the network's hidden layers work and operate. I sometimes had big frustrations when figuring out how to make the formulas do what I wanted them to do, and I even failed with teaching them that forward = desirable, and going in circles does not increase fitness(as I mentioned before, this is somehting I would improve in the future), I tried out a lot of solutions, but just was not able to crack it in time. Overall, my experience was positive, and I'd love to learn more about machine learning, but also the other topics of this challenge - affective computing, artificial creatures or even cellular automata.
+            I really liked combining physical interaction with the Arduino capacitive sensors and digital prototypes using Processing. I found it amusing to use capacitive sensors, especially when playing around with it and using bananas or similar things, and seeing it work. Overall, I think linking different programs to create something innovative is really fun, and I liked that I was able to tinker around with Arduino in this course, as I myself would probably never pick it up on my own.
           </p>
-          <img src="images/challenge3/formula3.png" alt="">
         </div>
       </div>
       <div id="cursor"></div>
